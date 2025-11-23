@@ -1,231 +1,209 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/co.jpg">
-    <title>Ochner's</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio — Ana Ochner</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="style.css">
+
+  <meta name="theme-color" content="#011c40">
 </head>
- <div class="TUDO">
-      <header>
-        <section class="section section-1">
-        <div class="header"> <img src="" alt=""></div>
-        <div class="sobre"> 
-            <a href="#projetos" class="pro">Skills</a>
-            <a href="#aboutme" class="pro">About me</a>
-            <!-- <a href="#proje" class="cont">Projects</a> -->
-            <a href="#hobbys" class="cont">Hobbys</a>
+
+<body>
+  <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="Home — Ana Ochner">Ana Ochner<span class="dot">.</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="siteNav" class="nav" role="navigation">
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-label="Apresentação">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1 class="title"><span class="accent">Design</span> & <span class="accent">Desenvolvimento</span> — interfaces modernas que entregam resultados</h1>
+          <p class="subtitle">Sou estudante e desenvolvedor focado em soluções web completas — front-end interativo, backend escalável e experiências com visual tecnológico.</p>
+
+          <div class="hero-cta">
+            <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+            <a href="#contato" class="btn btn-outline">Entrar em Contato</a>
+          </div>
+
+          <ul class="stats" aria-hidden="true">
+            <li><strong>10+</strong><span>Projetos</span></li>
+            <li><strong>5</strong><span>Anos</span></li>
+            <li><strong>Full‑Stack</strong><span>Web & Sistemas</span></li>
+          </ul>
         </div>
-      </header>
 
-    <div class="main"> 
-     <button class="button" data-text="Awesome">
-        <span class="actual-text">&nbsp;OCHNER'S&nbsp;</span>
-        <span aria-hidden="true" class="front-text">&nbsp;OCHNER'S&nbsp;</span>
-    </button> 
-            <div class="assunto">
-              HEYY <3 , My name is Ana <br>  I'm a systems development student <br>
+        <aside class="hero-card" aria-hidden="true">
+          <div class="dash">
+            <div class="dash-top">
+              <div class="dot"></div>
+              <div class="title">Overview</div>
+              <div class="badge">Realtime</div>
             </div>
-            <div class="contatos">
-              <!-- <img src="img/Instagram.jpg" width="57px">
-              <img src="img/emaill.jpg" width="57px">
-              <img src="img/git.jpg" width="54px">
-             -->
+            <div class="dash-body">
+              <div class="chart-placeholder">Gráfico</div>
+              <div class="metrics">
+                <div class="m"><span class="num">1.2K</span>visitas</div>
+                <div class="m"><span class="num">98%</span>uptime</div>
+                <div class="m"><span class="num">4.9</span>rating</div>
+              </div>
             </div>
-        </div>
-       
+          </div>
+        </aside>
+      </div>
+    </section>
 
-
-            
-
+    <!-- SOBRE -->
+    <section class="section" id="sobre">
+      <div class="container section-grid">
         <div class="about">
-            
+          <h2>Sobre mim</h2>
+          <p>Sou estudante e desenvolvedor com foco em soluções modernas, interfaces interativas e boas práticas. Tenho experiência com desenvolvimento web (HTML/CSS/JS), backend em Python/Node e interesse em cybersecurity.</p>
+          <ul class="about-list">
+            <li><strong>Nome:</strong> Ana Ochner</li>
+            <li><strong>Local:</strong> São Paulo, Brasil</li>
+            <li><strong>Disponibilidade:</strong> Freelance / CLT</li>
+          </ul>
         </div>
-        
-        <div class="blur">
-        <div class="carti">
-            <img src="img/corre.jpeg" width="460px" >
+
+        <div class="skills-preview" id="habilidades">
+          <h3>Resumo técnico</h3>
+          <div class="skill-chips" id="skillChips" role="tablist" aria-label="Filtrar habilidades">
+            <button class="chip active" data-skill="all" role="tab" aria-selected="true">Tudo</button>
+            <button class="chip" data-skill="frontend" role="tab">Frontend</button>
+            <button class="chip" data-skill="backend" role="tab">Backend</button>
+            <button class="chip" data-skill="infra" role="tab">Infra</button>
+            <button class="chip" data-skill="design" role="tab">Design</button>
+          </div>
+
+          <div class="skill-list" id="skillList" role="region" aria-live="polite">
+            <div class="skill" data-type="frontend">HTML • CSS • JavaScript • React</div>
+            <div class="skill" data-type="backend">Python • Flask • Django • Node</div>
+            <div class="skill" data-type="infra">Docker • CI/CD • AWS</div>
+            <div class="skill" data-type="design">Figma • UX • Prototipação</div>
           </div>
         </div>
-      
-      </section>
-    </div>
+      </div>
+    </section>
 
-<div class="centro">
-    <div class="pae">
-            <div id="projetos" class="projetos"></div>
-           
+    <!-- PROJETOS -->
+    <section class="section dark" id="projetos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projetos</h2>
+          <p class="muted">Seleção de projetos recentes — clique para abrir detalhes.</p>
+        </div>
 
-      <div class="tudo">
-
-            <div class="card">
-              <a class="branco" href="projetoss/index.html">
-                <div class="main-content">
-                  <div class="header">
-                <span>Aprendendo</span>
-                <span>PROJETOS</span>
+        <div class="projects-grid" id="projectsGrid">
+          <article class="project-card" data-category="web">
+            <div class="pc-thumbnail" aria-hidden="true"></div>
+            <div class="pc-body">
+              <h3>NeoConvert — Conversor</h3>
+              <p>Conversor de moedas com backend em Flask e interface moderna.</p>
+              <div class="pc-footer">
+                <span class="tag">Web</span>
+                <button class="btn btn-ghost open-project" data-title="NeoConvert" data-desc="Conversor de moedas com Flask, deploy e testes.">Ver</button>
               </div>
-              <p class="heading">Conhecimentos linguagens e PROJETOS</p>
-              <div class="categories">
-                <span>JavaScript</span>
-                <span>Css</span>
-                <span>C</span>
-                <span>C++</span>
-                <span>html</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="data">
+            <div class="pc-thumbnail" aria-hidden="true"></div>
+            <div class="pc-body">
+              <h3>Análise de Vendas (Protótipo)</h3>
+              <p>Pipelines em Python + dashboards simulados para insights.</p>
+              <div class="pc-footer">
+                <span class="tag">Data</span>
+                <button class="btn btn-ghost open-project" data-title="Análise de Vendas" data-desc="Tratamento, visualização e insights.">Ver</button>
               </div>
-                </div>
-              <div class="footer">
-                by Anyochner
+            </div>
+          </article>
+
+          <article class="project-card" data-category="mobile">
+            <div class="pc-thumbnail" aria-hidden="true"></div>
+            <div class="pc-body">
+              <h3>App Mobile (Protótipo)</h3>
+              <p>Protótipo de app com navegação otimizada e microinterações.</p>
+              <div class="pc-footer">
+                <span class="tag">Mobile</span>
+                <button class="btn btn-ghost open-project" data-title="App Mobile" data-desc="Protótipo com fluxo completo e testes de usabilidade.">Ver</button>
               </div>
-            </a>
-              </div>
-                    
-              <div class="card1">
-                <a class="branco" href="Projetos.html">
-                <div class="main-content">
-                  <div class="header">
-                <span>CERTIFICADOS</span>
-                <span>2023</span>
-              </div>
-              <p class="heading">Cursos ead feitos pelo SENAI </p>
-              <div class="categories">
-                <a href="/Projetos.html"></a>
-                <span>LGPD proteção de dados</span>
-                <span>Desvendando 5g</span>
-                <span>Economia circular</span>
-              </div>
-                </div>
-              <div class="footer">
-                by senai-Jaguariúna
-              </div>
-            </a>
-              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-              <div class="card2">
-                <div class="main-content">
-                  <div class="header">
-                <span>Cursos </span>
-                <span>2023</span>
-              </div>
-              <p class="heading">Cursos feitos pelo SENAI </p>
-              <div class="categories">
-                <span>Power BI</span>
-                <span>Google Cloud</span>
-              </div>
-                </div>
-              <div class="footer">
-                by senai-Jaguariúna
-              </div>
-              </div>
-       
-    </div>
-  </div>
- 
-
-
-<div id="aboutme" class="eu">
-  
-  
-  
-  <div class="cube">
-    <img src="img/dc5e4cd6a157312e805be7799fb15de3.jpg" width="740px">
-  </div>
-
-  <div class="cai">
-  <h3 class="tex">
-<button class="a">
-  Hi, my name is Ana, and I'm a student <br>
-  <br>
-  of Systems Development<br>
-  <br>
-  This is my portfolio of work done at SENAI<br>
-  <br>
-  Certificates, works and ideas<br>
-  <br>
-  I want to improve my knowledge, and many other languages<br>
-  <br>
-
-  My dream is to graduate in cyber defense, and work at Foricia Florence<br>
-<br>
-Here you will see some of the projects I did with the SENAI course<br>
-<br>
-Thanks for visiting!<br>
-  </button>
-  
-  </h3> </div>
-
-</div>
-
-<div id="proje" class="projetos">
-
-  <!-- <button class="uiverse">
-    <div class="wrapper">
-      <a href="/Projetos.html">
-        <span>Observar PROJETOS</span>
-        <div class="circle circle-12"></div>
-        <div class="circle circle-11"></div>
-        <div class="circle circle-10"></div>
-        <div class="circle circle-9"></div>
-        <div class="circle circle-8"></div>
-        <div class="circle circle-7"></div>
-        <div class="circle circle-6"></div>
-        <div class="circle circle-5"></div>
-        <div class="circle circle-4"></div>
-        <div class="circle circle-3"></div>
-        <div class="circle circle-2"></div>
-        <div class="circle circle-1"></div>
-      </a>
-    </div>
-</button> -->
-
-
-
-  
-</div>
-  
-</div>
-<div class="contatos">
-
-<div class="cert">
-
-
-</div>
-
-
-</div>
-<span id="mouse"></span>
-
-<div class="hobby" id="hobbys">
-
- 
-
-
-<div >
-  <img src="img/p2.jpeg" width="320px">
-</div>
-  
-<div >
-  <img src="img/p3.jpeg" width="320px">
-</div>
-
-<div >
-  <img src="img/p4.jpeg" width="320px">
-</div>
-
-</div>
-
-
-<div class="espaco">
-  <div class="preto">
     
+    <section class="section" id="contato">
+      <div class="container contact-grid">
+        <div>
+          <h2>Contato</h2>
+          <p>Quer trabalhar comigo ou fazer uma proposta? Envie uma mensagem.</p>
 
-  </div>
+          <form id="contactForm" class="contact-form" novalidate>
+            <label>Nome
+              <input type="text" name="name" required>
+            </label>
+            <label>Email
+              <input type="email" name="email" required>
+            </label>
+            <label>Mensagem
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </form>
+        </div>
+
+        <aside class="contact-info" aria-hidden="true">
+          <h3>Dados</h3>
+          <p><strong>Email:</strong> anaochnerort@gmail.com</p>
+          <p><strong>LinkedIn:</strong> /anyochner</p>
+          <p><strong>Disponibilidade:</strong> Freelance / Emprego</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <small>© <span id="year"></span> Ana Ochner — Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
   
-</div>
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+      <h3 id="modalTitle">Título</h3>
+      <p id="modalDesc">Descrição</p>
+      <div class="modal-actions">
+        <a href="#" class="btn btn-primary" id="modalRepo" target="_blank" rel="noopener">Ver repositório</a>
+        <button class="btn btn-ghost" id="modalClose2">Fechar</button>
+      </div>
+    </div>
+  </div>
 
-
-
+  <script src="script.js" defer></script>
 </body>
 </html>
