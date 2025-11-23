@@ -1,9 +1,7 @@
-// Modern interactions: nav toggle, skill filter, project modal, smooth scroll, particle background, scroll reveal
 document.addEventListener('DOMContentLoaded', () => {
-  // year
+  
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // nav toggle (mobile)
   const navToggle = document.getElementById('navToggle');
   const siteNav = document.getElementById('siteNav');
   navToggle.addEventListener('click', () => {
@@ -12,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     siteNav.classList.toggle('show');
   });
 
-  // skill filter
   const chips = Array.from(document.querySelectorAll('.chip'));
   const skills = Array.from(document.querySelectorAll('.skill'));
   chips.forEach(chip => {
@@ -33,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // open project modal
   const modal = document.getElementById('projectModal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
@@ -56,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('modalClose2').addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-  // smooth scroll for internal links
+
   const internalLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
   internalLinks.forEach(a => a.addEventListener('click', (e) => {
     const href = a.getAttribute('href');
@@ -69,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }));
 
-  // scroll reveal (simple)
+
   const revealElements = document.querySelectorAll('.section, .project-card, .skill');
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -87,12 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
     io.observe(el);
   });
 
-  // contact form basic handler (no backend)
+
   const contactForm = document.getElementById('contactForm');
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const f = new FormData(contactForm);
-    // simple UX feedback
     const btn = contactForm.querySelector('button[type="submit"]');
     const old = btn.textContent;
     btn.textContent = 'Enviando...';
@@ -104,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 900);
   });
 
-  // Particle background (canvas)
   const canvas = document.getElementById('bgCanvas');
   const ctx = canvas.getContext('2d');
   let w = canvas.width = innerWidth;
@@ -134,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   function step(){
     ctx.clearRect(0,0,w,h);
-    // gentle gradient overlay
+
     const g = ctx.createLinearGradient(0,0,w,h);
     g.addColorStop(0, 'rgba(2,6,15,0.0)');
     g.addColorStop(1, 'rgba(2,6,15,0.2)');
@@ -153,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
       ctx.fill();
     }
-    // connect some particles
     for(let i=0;i<particles.length;i++){
       for(let j=i+1;j<particles.length;j++){
         const a = particles[i], b = particles[j];
