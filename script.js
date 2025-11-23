@@ -1,7 +1,9 @@
+// Modern interactions: nav toggle, skill filter, project modal, smooth scroll, particle background, scroll reveal
 document.addEventListener('DOMContentLoaded', () => {
-  
+  // year
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // nav toggle (mobile)
   const navToggle = document.getElementById('navToggle');
   const siteNav = document.getElementById('siteNav');
   navToggle.addEventListener('click', () => {
@@ -10,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     siteNav.classList.toggle('show');
   });
 
+  // skill filter
   const chips = Array.from(document.querySelectorAll('.chip'));
   const skills = Array.from(document.querySelectorAll('.skill'));
   chips.forEach(chip => {
@@ -30,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // open project modal
   const modal = document.getElementById('projectModal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
@@ -52,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('modalClose2').addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-
+  // smooth scroll for internal links
   const internalLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
   internalLinks.forEach(a => a.addEventListener('click', (e) => {
     const href = a.getAttribute('href');
@@ -65,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }));
 
-
+  // scroll reveal (simple)
   const revealElements = document.querySelectorAll('.section, .project-card, .skill');
   const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -83,11 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
     io.observe(el);
   });
 
-
+  // contact form basic handler (no backend)
   const contactForm = document.getElementById('contactForm');
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const f = new FormData(contactForm);
+    // simple UX feedback
     const btn = contactForm.querySelector('button[type="submit"]');
     const old = btn.textContent;
     btn.textContent = 'Enviando...';
@@ -99,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 900);
   });
 
+  // Particle background (canvas)
   const canvas = document.getElementById('bgCanvas');
   const ctx = canvas.getContext('2d');
   let w = canvas.width = innerWidth;
@@ -128,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   function step(){
     ctx.clearRect(0,0,w,h);
-
+    // gentle gradient overlay
     const g = ctx.createLinearGradient(0,0,w,h);
     g.addColorStop(0, 'rgba(2,6,15,0.0)');
     g.addColorStop(1, 'rgba(2,6,15,0.2)');
@@ -147,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
       ctx.fill();
     }
+    // connect some particles
     for(let i=0;i<particles.length;i++){
       for(let j=i+1;j<particles.length;j++){
         const a = particles[i], b = particles[j];
@@ -167,3 +174,64 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   requestAnimationFrame(step);
 });
+
+/* ======== PARTÍCULAS CONECTADAS ======== */
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+const particles = [];
+const total = 60;
+
+for (let i = 0; i < total; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4
+  });
+}
+
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+    ctx.fillStyle = "#00eaff";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  for (let i = 0; i < total; i++) {
+    for (let j = i + 1; j < total; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 120) {
+        ctx.strokeStyle = "rgba(0,255,255," + (1 - dist / 120) + ")";
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  requestAnimationFrame(render);
+}
+render();
+
