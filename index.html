@@ -7,14 +7,14 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
   <meta name="theme-color" content="#011c40">
 </head>
 
 <body>
+  <canvas id="particles"></canvas>
   <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
 
   <header class="site-header" role="banner">
@@ -55,23 +55,40 @@
           </ul>
         </div>
 
-        <aside class="hero-card" aria-hidden="true">
-          <div class="dash">
-            <div class="dash-top">
-              <div class="dot"></div>
-              <div class="title">Overview</div>
-              <div class="badge">Realtime</div>
-            </div>
-            <div class="dash-body">
-              <div class="chart-placeholder">Gráfico</div>
-              <div class="metrics">
-                <div class="m"><span class="num">1.2K</span>visitas</div>
-                <div class="m"><span class="num">98%</span>uptime</div>
-                <div class="m"><span class="num">4.9</span>rating</div>
-              </div>
-            </div>
-          </div>
-        </aside>
+        
+
+                  <section id="estatisticas" class="stats-section">
+                    <h2>Minhas Estatísticas</h2>
+                  
+                    <div class="chart-container">
+                  
+                      <div class="bar-item" data-value="1.2K visitas" data-level="75">
+                        <span class="label">
+                          <i class="fa-solid fa-eye"></i> Visitas
+                        </span>
+                        <div class="bar" style="--width: 75%"></div>
+                      </div>
+                  
+                      <div class="bar-item" data-value="98% uptime" data-level="98">
+                        <span class="label">
+                          <i class="fa-solid fa-bolt"></i> Uptime
+                        </span>
+                        <div class="bar" style="--width: 98%"></div>
+                      </div>
+                  
+                      <div class="bar-item" data-value="4.9 rating" data-level="49">
+                        <span class="label">
+                          <i class="fa-solid fa-star"></i> Rating
+                        </span>
+                        <div class="bar" style="--width: 49%"></div>
+                      </div>
+                  
+                    </div>
+                  </section>
+                  
+                  
+              
+            
       </div>
     </section>
 
@@ -109,102 +126,110 @@
     </section>
 
     <!-- PROJETOS -->
-    <section class="section dark" id="projetos">
+    <section id="projetos" class="projects-minimal">
       <div class="container">
-        <div class="section-head">
+    
+        <header class="proj-header">
           <h2>Projetos</h2>
-          <p class="muted">Seleção de projetos recentes — clique para abrir detalhes.</p>
+          <p class="sub">Seleção dos meus projetos recentes.</p>
+        </header>
+    
+        <div class="proj-grid">
+    
+          <div class="proj-card">
+            <div class="proj-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/2889/2889676.png">
+            </div>
+            <h3>NeoConvert</h3>
+            <p>Conversor de moedas usando Flask + API.</p>
+            <a class="proj-link" href="#">Abrir →</a>
+          </div>
+    
+          <div class="proj-card">
+            <div class="proj-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/3655/3655577.png">
+            </div>
+            <h3>Landing Page AI</h3>
+            <p>Landing page com micro animações e UI refinada.</p>
+            <a class="proj-link" href="#">Abrir →</a>
+          </div>
+    
+          <div class="proj-card">
+            <div class="proj-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/9425/9425332.png">
+            </div>
+            <h3>Dashboard Cyber</h3>
+            <p>Dashboard escuro com gráficos JS minimalistas.</p>
+            <a class="proj-link" href="#">Abrir →</a>
+          </div>
+    
         </div>
-
-        <div class="projects-grid" id="projectsGrid">
-          <article class="project-card" data-category="web">
-            <div class="pc-thumbnail" aria-hidden="true"></div>
-            <div class="pc-body">
-              <h3>NeoConvert — Conversor</h3>
-              <p>Conversor de moedas com backend em Flask e interface moderna.</p>
-              <div class="pc-footer">
-                <span class="tag">Web</span>
-                <button class="btn btn-ghost open-project" data-title="NeoConvert" data-desc="Conversor de moedas com Flask, deploy e testes.">Ver</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="data">
-            <div class="pc-thumbnail" aria-hidden="true"></div>
-            <div class="pc-body">
-              <h3>Análise de Vendas (Protótipo)</h3>
-              <p>Pipelines em Python + dashboards simulados para insights.</p>
-              <div class="pc-footer">
-                <span class="tag">Data</span>
-                <button class="btn btn-ghost open-project" data-title="Análise de Vendas" data-desc="Tratamento, visualização e insights.">Ver</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card" data-category="mobile">
-            <div class="pc-thumbnail" aria-hidden="true"></div>
-            <div class="pc-body">
-              <h3>App Mobile (Protótipo)</h3>
-              <p>Protótipo de app com navegação otimizada e microinterações.</p>
-              <div class="pc-footer">
-                <span class="tag">Mobile</span>
-                <button class="btn btn-ghost open-project" data-title="App Mobile" data-desc="Protótipo com fluxo completo e testes de usabilidade.">Ver</button>
-              </div>
-            </div>
-          </article>
-        </div>
+    
       </div>
     </section>
-
+    
     <!-- CONTATO -->
-    <section class="section" id="contato">
-      <div class="container contact-grid">
-        <div>
-          <h2>Contato</h2>
-          <p>Quer trabalhar comigo ou fazer uma proposta? Envie uma mensagem.</p>
-
+    <section id="contato" class="contact-section">
+      <div class="container contact-wrapper">
+    
+        <div class="contact-text">
+          <h2 class="contact-title">Contato</h2>
+          <p class="contact-sub">
+            Vamos conversar? Envie sua mensagem e retornarei o mais rápido possível.
+          </p>
+    
           <form id="contactForm" class="contact-form" novalidate>
-            <label>Nome
-              <input type="text" name="name" required>
-            </label>
-            <label>Email
-              <input type="email" name="email" required>
-            </label>
-            <label>Mensagem
-              <textarea name="message" rows="4" required></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Enviar</button>
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input id="name" type="text" name="name" required>
+            </div>
+    
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" required>
+            </div>
+    
+            <div class="form-group">
+              <label for="message">Mensagem</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+    
+            <button class="btn-submit" type="submit">
+              Enviar mensagem
+            </button>
           </form>
         </div>
-
-        <aside class="contact-info" aria-hidden="true">
-          <h3>Dados</h3>
-          <p><strong>Email:</strong> anaochnerort@gmail.com</p>
-          <p><strong>LinkedIn:</strong> /anyochner</p>
-          <p><strong>Disponibilidade:</strong> Freelance / Emprego</p>
+    
+        <aside class="contact-box">
+          <h3 class="info-title">Informações</h3>
+    
+          <div class="info-item">
+            <span class="info-label">Email</span>
+            <p>anaochnerort@gmail.com</p>
+          </div>
+    
+          <div class="info-item">
+            <span class="info-label">LinkedIn</span>
+            <p>/anyochner</p>
+          </div>
+    
+          <div class="info-item">
+            <span class="info-label">Disponibilidade</span>
+            <p>Freelance • Emprego</p>
+          </div>
         </aside>
+    
       </div>
     </section>
-  </main>
+    
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <small>© <span id="year"></span> Ana Ochner — Todos os direitos reservados.</small>
-    </div>
-  </footer>
-
-  <!-- Project Modal -->
-  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-content">
-      <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
-      <h3 id="modalTitle">Título</h3>
-      <p id="modalDesc">Descrição</p>
-      <div class="modal-actions">
-        <a href="#" class="btn btn-primary" id="modalRepo" target="_blank" rel="noopener">Ver repositório</a>
-        <button class="btn btn-ghost" id="modalClose2">Fechar</button>
-      </div>
-    </div>
+<footer class="footer">
+  <div class="container">
+    <p class="footer-text">
+      © <span id="year"></span> Ana Ochner — Todos os direitos reservados.
+    </p>
   </div>
+</footer>
 
   <script src="script.js" defer></script>
 </body>
