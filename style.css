@@ -1,6 +1,3 @@
-/* Modernized style.css — Mobile first, glass + neon UI
-   Palette: --a #a7ebf2, --b #54acbf, --c #26658c, --d #023859, --e #011c40
-*/
 :root{
   --a: #a7ebf2;
   --b: #54acbf;
@@ -28,17 +25,13 @@ body{
   overflow-x:hidden;
 }
 
-/* background canvas full */
+/* background canvas */
 .bg-canvas{
   position:fixed;
   inset:0;
   z-index:0;
   pointer-events:none;
 }
-
-/* ================================
-   SEÇÃO ESTATÍSTICAS
-================================ */
 .stats-section {
   margin-top: 60px;
   padding: 40px 20px;
@@ -54,9 +47,6 @@ body{
   margin-bottom: 30px;
 }
 
-/* ================================
-   CONTAINER
-================================ */
 .chart-container {
   width: 100%;
   max-width: 900px;
@@ -66,9 +56,6 @@ body{
   margin: 0 auto;
 }
 
-/* ================================
-   ITENS DO GRÁFICO
-================================ */
 .bar-item {
   display: flex;
   flex-direction: column;
@@ -76,9 +63,6 @@ body{
   position: relative;
 }
 
-/* ---------------------- */
-/* ÍCONES ANIMADOS       */
-/* ---------------------- */
 .label {
   font-size: 17px;
   font-weight: bold;
@@ -106,9 +90,6 @@ body{
   100% { transform: scale(1); }
 }
 
-/* ================================
-   BARRAS
-================================ */
 .bar {
   height: 28px;
   width: 0;
@@ -122,15 +103,11 @@ body{
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* animação de preenchimento */
 @keyframes grow {
   from { width: 0; }
   to { width: var(--width); }
 }
 
-/* ---------------------- */
-/* ALTERA A COR DA BARRA POR VALOR */
-/* ---------------------- */
 .bar-item[data-level="98"] .bar {
   background: linear-gradient(90deg, #00ffbf, #00ffa6, #00ffdd);
   box-shadow: 0 0 16px rgba(0, 255, 200, 0.6);
@@ -144,15 +121,11 @@ body{
   background: linear-gradient(90deg, #ffb347, #ff9966, #ff5e62);
 }
 
-/* ---------------------- */
-/* EFEITO HOVER */
-/* ---------------------- */
 .bar:hover {
   transform: scale(1.03);
   box-shadow: 0 0 22px rgba(150, 230, 255, 0.9);
 }
 
-/* Tooltips */
 .bar-item:hover::after {
   content: attr(data-value);
   position: absolute;
@@ -210,7 +183,7 @@ body{
 .nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:0.6rem;border-radius:8px}
 .nav a:hover{color:var(--a);transform:translateY(-3px);transition:all .18s}
 
-/* mobile toggle */
+
 .nav-toggle{display:none;background:transparent;border:0;padding:0.3rem;border-radius:8px}
 .hamburger{display:block;width:28px;height:2px;background:var(--muted);position:relative}
 .hamburger::before,.hamburger::after{content:"";position:absolute;left:0;width:28px;height:2px;background:var(--muted)}
@@ -276,11 +249,10 @@ body{
 .skill-chips{display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap}
 .chip.active{background:linear-gradient(90deg,var(--a),var(--b));color:#03181a;border:0;transform:translateY(-2px)}
 
-/* skill list */
 .skill-list{display:flex;flex-direction:column;gap:0.6rem}
 .skill{padding:0.75rem;background:var(--glass);border-radius:10px;color:var(--muted)}
 
-/* projects */
+
 .section.dark{background:linear-gradient(180deg, rgba(1,28,64,0.06), transparent);border-top:1px solid rgba(255,255,255,0.02)}
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1rem}
 .project-card{background:linear-gradient(180deg, rgba(10,10,20,0.2), rgba(6,6,12,0.08));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:0.6rem;transition:transform .22s, box-shadow .22s}
@@ -291,19 +263,16 @@ body{
 .pc-footer{display:flex;justify-content:space-between;align-items:center}
 .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-size:0.8rem;color:var(--muted)}
 
-/* contact */
 .contact-grid{display:grid;grid-template-columns:1fr 300px;gap:1rem}
 .contact-form label{display:block;margin-bottom:0.8rem;color:var(--muted)}
 .contact-form input,.contact-form textarea{width:100%;padding:0.7rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);color:inherit}
 .contact-info{background:rgba(255,255,255,0.01);padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
 
-/* modal */
 .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,15,0.6);visibility:hidden;opacity:0;transition:opacity .18s,visibility .18s;z-index:60}
 .modal[aria-hidden="false"]{visibility:visible;opacity:1}
 .modal-content{background:linear-gradient(180deg, rgba(10,10,20,0.92), rgba(6,6,12,0.98));padding:1.4rem;border-radius:12px;width:min(760px,94%);border:1px solid rgba(84,172,191,0.04);box-shadow:0 30px 80px rgba(2,12,30,0.6)}
 .modal-close{position:absolute;right:1rem;top:1rem;background:transparent;border:0;color:var(--muted);font-size:1.6rem;cursor:pointer}
 
-/* utilities */
 .site-footer{padding:2rem 0;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
 @media (min-width:900px){
   .hero{min-height:72vh}
@@ -318,8 +287,6 @@ body{
   .nav-toggle{display:block}
 }
 
-
-
 .about-section {
   padding: 80px 0;
   background: linear-gradient(135deg, #011c40 0%, #023859 100%);
@@ -328,7 +295,6 @@ body{
   margin-top: 50px;
 }
 
-/* Título principal */
 .about-section h2 {
   color: #a7ebf2;
   font-size: 34px;
@@ -336,7 +302,6 @@ body{
   position: relative;
 }
 
-/* Barrinha estilosa abaixo do título */
 .about-section h2::after {
   content: "";
   position: absolute;
@@ -348,7 +313,6 @@ body{
   background: #54acbf;
 }
 
-/* Parágrafo principal */
 .about-section p {
   color: #d9f6ff;
   line-height: 1.7;
@@ -356,7 +320,6 @@ body{
   max-width: 600px;
 }
 
-/* Lista de informações pessoais */
 .about-list {
   margin-top: 20px;
   padding-left: 0;
@@ -390,15 +353,11 @@ body{
   font-size: 22px;
 }
 
-/* ANIMAÇÃO */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ================================
-   CHIPS (Filtros)
-================================ */
 .skill-chips {
   display: flex;
   gap: 12px;
@@ -428,9 +387,6 @@ body{
   font-weight: bold;
 }
 
-/* ================================
-LISTA DE SKILLS
-================================ */
 .skill-list {
   display: flex;
   flex-direction: column;
@@ -447,14 +403,12 @@ LISTA DE SKILLS
   transition: 0.3s ease;
 }
 
-/* Hover animado */
 .skill:hover {
   background: rgba(167, 235, 242, 0.2);
   transform: translateX(5px);
   border-left-color: #adeff7;
 }
 
-/* GRID RESPONSIVO */
 .section-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -468,7 +422,6 @@ LISTA DE SKILLS
   }
 }
 
-/* ===== GRID 12 COLUNAS ESTILO TAILWIND ===== */
 .section-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -478,13 +431,11 @@ LISTA DE SKILLS
   margin: 0 auto;
   padding: 4rem 1rem;
 
-  /* Animação suave ao aparecer */
   opacity: 0;
   transform: translateY(20px);
   animation: sectionFade 0.8s ease-out forwards;
 }
 
-/* Colunas */
 .about {
   grid-column: span 6; /* 6/12 */
 }
@@ -492,7 +443,7 @@ LISTA DE SKILLS
 .skills-preview {
   grid-column: span 6; /* 6/12 */
 
-  /* Borda neon + brilho */
+  
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(80, 200, 255, 0.25);
   border-radius: 18px;
@@ -507,7 +458,6 @@ LISTA DE SKILLS
   transition: 0.3s ease;
 }
 
-/* Ao passar o mouse: brilho mais forte */
 .skills-preview:hover {
   box-shadow:
     0 0 20px rgba(0, 200, 255, 0.4),
@@ -516,7 +466,6 @@ LISTA DE SKILLS
   transform: translateY(-4px);
 }
 
-/* ===== TÍTULOS COM SUB-GLOW ===== */
 #sobre h2,
 .skills-preview h3 {
   position: relative;
@@ -538,7 +487,6 @@ LISTA DE SKILLS
   opacity: 0.85;
 }
 
-/* ===== Animação suave ===== */
 @keyframes sectionFade {
   to {
     opacity: 1;
@@ -546,7 +494,6 @@ LISTA DE SKILLS
   }
 }
 
-/* ===== RESPONSIVO ===== */
 @media (max-width: 900px) {
   .section-grid {
     grid-template-columns: 1fr;
@@ -648,10 +595,6 @@ LISTA DE SKILLS
   pointer-events: none;
 }
 
-/* ----------------------- */
-/* SEÇÃO PROJETOS CLEAN */
-/* ----------------------- */
-
 .projects-minimal {
   padding: 100px 0;
   background: #010914;
@@ -751,9 +694,6 @@ LISTA DE SKILLS
   }
 }
 
-/* ============================= */
-/*   CONTATO — MINIMAL TECH      */
-/* ============================= */
 
 .contact-section {
   padding: 100px 0;
@@ -832,9 +772,6 @@ LISTA DE SKILLS
   box-shadow: 0 0 12px rgba(0,255,255,0.3);
 }
 
-/* ============================= */
-/*   BLOCO DE INFORMAÇÕES        */
-/* ============================= */
 
 .contact-box {
   padding: 30px;
