@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resultado - Conversor de Moedas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Resultado da Conversão</h1>
+    </header>
+
+    <section class="card result-card">
+      <p class="lead">{{ amount }} {{ from_cur }} =</p>
+      <p class="big">{{ result }} {{ to_cur }}</p>
+
+      <div class="actions">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Nova conversão</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Feito com HTML, CSS e Python (Flask). API sugerida: exchangerate.host</p>
+    </footer>
+  </main>
+</body>
+</html>

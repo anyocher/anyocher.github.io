@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeoConvert – Conversor de Moedas</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <div class="hero">
+    <nav class="navbar">
+      <h2 class="logo">NeoConvert</h2>
+      <div class="nav-actions">
+        <a href="#" class="nav-btn">Login</a>
+        <a href="#" class="nav-btn signup">Criar conta</a>
+      </div>
+    </nav>
+
+    <header class="hero-content">
+      <span class="tag">Conversão rápida e segura</span>
+      <h1>A Evolução da Conversão de Moedas</h1>
+      <p>Velocidade, precisão e tecnologia para transformar valores entre moedas.</p>
+
+      <div class="hero-buttons">
+        <a class="btn">Começar</a>
+        <a class="btn-secondary">Documentação</a>
+      </div>
+    </header>
+  </div>
+
+  <main class="container">
+    <section class="card glass">
+      <h2 class="section-title">Conversor de Moedas</h2>
+      <p class="subtitle">Converta instantaneamente valores entre BRL, USD, EUR e muito mais.</p>
+
+      <form method="post" class="form">
+        <div class="field">
+          <label for="amount">Valor</label>
+          <input id="amount" name="amount" placeholder="Ex: 150.50" required />
+        </div>
+
+        <div class="inline">
+          <div class="field">
+            <label for="from_currency">De</label>
+            <select id="from_currency" name="from_currency">
+              {% for c in currencies %}
+              <option value="{{c}}">{{c}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="to_currency">Para</label>
+            <select id="to_currency" name="to_currency">
+              {% for c in currencies %}
+              <option value="{{c}}">{{c}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">Converter</button>
+        </div>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p> © NeoConvert • Realizado por fins educacionais • Feito por Ana Ochner</p>
+    </footer>
+  </main>
+</body>
+</html>
